@@ -1,0 +1,29 @@
+
+<h4>Listado</h4>
+<ul class="list-group">
+  <li *ngFor="
+        let charecter of characterList;
+        let i = index;
+        let isFirst = first;
+        let isLast = last;
+        let isEven = even;
+        let isOdd = odd;
+      "
+      class="list-group-item d-flex justify-content-between align-items-center"
+        [ngClass]="{'list-group-item-dark': isLast,
+                    'list-group-item-primaty': isEven
+      }">
+
+    <div>
+
+      <span class="text-primary">{{i + 1}}. </span>
+      <span>{{charecter.name}} - </span>
+      <strong>Power: </strong>
+      <span>{{charecter.power}}</span>
+
+    </div>
+
+    <button (click)="onDeleteCharacter(charecter.id)" class="btn btn-danger"> X </button>
+
+  </li>
+</ul>
